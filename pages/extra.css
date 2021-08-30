@@ -1,0 +1,57 @@
+.btn{
+padding-top: 1.5px;
+padding-bottom: 1.5px;
+}
+.width{
+margin-right: 20%;
+margin-left: 20%;
+}
+.centre{
+    width: 120px;;
+    margin-left: 40%;
+    margin-top: 5%;
+}
+.col{
+    color: red;
+    position: absolute;
+    margin-top: -6%;
+    text-align: center;
+}
+.success{
+    color: rgb(37, 187, 37);
+
+    margin-top: -8%;
+    text-align: center;
+}
+.bold{
+    font-weight: bold;
+}
+.but{
+    background-color: green !important;
+    margin-left: 71%;
+    position: absolute;
+}
+.cat_img{
+    padding-top: 8px !important;
+}
+.a-color{
+    color: black;
+}
+.mb-5, .my-5 {
+    margin-bottom: 1rem!important;
+}
+.mini{
+    height: 30px  !important;
+    width: 50px !important;
+}
+.mini_img{
+    width: 60% !important;
+}
+
+
+.content-wrapper form{
+    border: 1px rgb(211, 208, 208) solid;
+    padding-left: 40px;
+    padding-right: 40px;
+ 
+}
