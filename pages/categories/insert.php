@@ -15,13 +15,29 @@ if (isset($_POST['add'])) {
 
         $insert = "INSERT INTO `categories`(`name`,`status`) VALUES ('$name','$status')";
         $result = mysqli_query($connection, $insert);
-        if ($result > 0) {
-            echo '<script>
-            window.location.replace("categories.php")
-            </script>';
-            echo "<p class='success'>categories Added successfully Refresh the page</p>";
+        if ($result) {
+
+            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success</strong> Your Data Successfully Added into the Database
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>';
+
+            echo "<script>
+            setTimeout(function() {
+                window.location.replace('categories.php');
+
+              }, 1000);
+
+        </script>";
         } else {
-            echo "<p class='col'>data already exits</p>";
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong>  ' . $connection->error . '
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>';
         }
     }
     $cat = " ";
@@ -49,23 +65,30 @@ if (isset($_POST['add'])) {
                     </button>
                 </div>
                 <div class="modal-body mx-3">
-                    <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">categories Name</label>
-                        <input name="name" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                    <div class="container">
+                        <div class="row">
+                            <div class="md-form col-sm-6 ">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">categories
+                                    Name</label>
+                                <input name="name" type="text" id="defaultForm-email" class="form-control validate"
+                                    placeholder="Enter Caregorie Name">
 
+                            </div>
+
+
+
+                            <div class="form-group col-sm-6">
+                                <label for="exampleFormControlSelect1">Select Status</label>
+                                <select name="status" class="form-control" id="exampleFormControlSelect1">
+
+                                    <option value='1'>Active</option>
+                                    <option value='0'>DeActive</option>
+
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                   
-                    
 
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Select Status</label>
-                        <select name="status" class="form-control" id="exampleFormControlSelect1">
-
-                            <option value='1'>Active</option>
-                            <option value='0'>DeActive</option>
-
-                        </select>
-                    </div>
                     <?php echo $msg; ?>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">

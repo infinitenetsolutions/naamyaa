@@ -1,11 +1,14 @@
+
 <?php
 session_start();
-$connection=mysqli_connect("localhost","naamyaafoundation_db","nSsiXPc3","naamyaafoundation_db");
-if($connection){
-    // echo"Connection Establish successfully";
-}
-else{
-    echo"Somthing is error";
-}
+if($_SERVER['SERVER_NAME']=="localhost"){
 
+// session_start();
+// localconnection
+$connection=mysqli_connect("localhost","root","","Naamya_foundation");
+}else{
+
+// // server connection
+$connection=mysqli_connect("localhost","naamyaafoundation_db","nSsiXPc3","naamyaafoundation_db");
+}
 ?>

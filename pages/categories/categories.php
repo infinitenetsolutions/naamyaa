@@ -83,10 +83,10 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                   include 'insert.php';
                   // include 'update.php';
                   ?>
+             
+                  <div class="card-body">
                   <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add new item
                   </a>
-                  <div class="card-body">
-
                     <table id="example1" class="table table-bordered table-striped">
 
                       <thead>

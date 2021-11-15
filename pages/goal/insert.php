@@ -13,26 +13,13 @@ if (isset($_POST['add'])) {
     $status = $_POST['status'];
 
     if ($name != null) {
+        $imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
 
-
-        $insert = "INSERT INTO `goal`(`name`, `goal_ammount`, `image`, `categories_name`, `status`) VALUES ('$name','$ammount','NULL','$categries_id','$status')";
+      echo  $insert = "INSERT INTO `goal`(`name`, `goal_ammount`, `image`, `categories_name`, `status`) VALUES ('$name','$ammount','$imgData','$categries_id','$status')";
         $result = mysqli_query($connection, $insert);
         if ($result > 0) {
 
-                if (count($_FILES) > 0) {
-                    if (is_uploaded_file($_FILES['image']['tmp_name'])) {
-    
-                        $imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-                        $sql = "UPDATE `goal` set `image`='$imgData' WHERE `id`='$id' ";
-                        $current_id = mysqli_query($connection, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($connection));
-                        if (isset($current_id)) {
-                            echo "<script>
-                                window.location.replace('../../pages/goal/Event.php')
-                            </script>";
-                        }
-                    }
-                }
-    
+               
             echo '<script>
             window.location.replace("Event.php")
             </script>';
@@ -66,29 +53,33 @@ $cat_r = mysqli_query($connection, $categrie);
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Title</label>
-                        <input name="name" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                        <input name="name" type="text" id="defaultForm-email" class="form-control validate"
+                            placeholder="Enter Caregorie Name">
 
                     </div>
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Goal Title</label>
-                        <select name="Categries" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                        <select name="Categries" id="defaultForm-email" class="form-control validate"
+                            placeholder="Enter Caregorie Name">
                             <option selected disabled>categories choose..</option>
                             <?php while ($cat_row = mysqli_fetch_array($cat_r)) { ?>
-                                <option value="<?php echo $cat_row['name']; ?>"><?php echo $cat_row['name']; ?></option>
+                            <option value="<?php echo $cat_row['name']; ?>"><?php echo $cat_row['name']; ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="defaultForm-email">ammount</label>
-                        <input name="ammount" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                        <input name="ammount" type="text" id="defaultForm-email" class="form-control validate"
+                            placeholder="Enter Caregorie Name">
 
                     </div>
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Images</label>
-                        <input name="image" type="file" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                        <input name="image" type="file" id="defaultForm-email" class="form-control validate"
+                            placeholder="Enter Caregorie Name">
                     </div>
 
-                    
+
 
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Select Status</label>
