@@ -14,7 +14,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | DataTables</title>
+    <title>Naamyaa Foundation </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -84,26 +84,26 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                       <thead>
                         <tr>
-                          <th>ID</th>
+                          <th>S.NO</th>
                           <th>Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
                           <th>Date/Time</th>
-                          <th>Query</th>
-                          <th>Action1</th>
+                          <th>Message</th>
+                          <th>Delete</th>
                         </tr>
                       </thead>
 
                       <tbody>
 
                         <?php
-
+                        $i = 0;
                         if (mysqli_num_rows($result) > 0) {
                           while ($rows = mysqli_fetch_array($result)) {
 
                         ?>
                             <tr>
-                              <td><?php echo $rows['id']; ?></td>
+                              <td><?php echo $i++; ?></td>
                               <td><?php echo $rows['name']; ?></td>
                               <td><?php echo $rows['email']; ?></td>
                               <td><?php echo $rows['email']; ?></td>
@@ -121,13 +121,13 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <tfoot>
                         <tr>
                         <tr>
-                          <th>ID</th>
+                          <th>S.NO</th>
                           <th>Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Date</th>
-                          <th>Query</th>
-                          <th>Action1</th>
+                          <th>Date/Time</th>
+                          <th>Message</th>
+                          <th>Delete</th>
                         </tr>
                         </tr>
                       </tfoot>

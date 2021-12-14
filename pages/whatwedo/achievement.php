@@ -19,7 +19,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | DataTables</title>
+    <title>Naamyaa Foundation </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -67,7 +67,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
               </div>
             </div>
           </div><!-- /.container-fluid -->
-          <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add new Pepole
+          <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add What We Do
           </a>
         </section>
 
@@ -81,7 +81,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">All What We Do of The Product</h3>
+                    <h3 class="card-title">All What We Do</h3>
                   </div>
                   <!-- /.card-header -->
                   <?php
@@ -92,41 +92,41 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                   <div class="card-body">
 
-                    <table id="example1" class="table table-bordered table-striped">
-<?php $_SESSION['link']= '<script> document.write(window.location.href)</script>' ?>
+                    <table id="example1" class=" table-responsive table table-bordered table-striped">
+                      <?php $_SESSION['link'] = '<script> document.write(window.location.href)</script>' ?>
                       <thead>
                         <tr>
-                          <th>ID</th>
+                          <th>S.NO</th>
                           <th>Title</th>
 
-                          <th>link</th>
-                          <th>image</th>
+                          <th>Link</th>
+                          <th>Image</th>
 
-                          <th>date</th>
-                          <th>Deatails</th>
-                          <th>Action1</th>
-                          <th>Action2</th>
-                          <th>Action3</th>
+                          <th>Date</th>
+                          <th>Details</th>
+                          <th>Update</th>
+                          <th>Delete</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
 
                       <tbody>
 
                         <?php
-                 
+                        $i = 1;
                         if (mysqli_num_rows($result1) > 0) {
                           while ($rows = mysqli_fetch_array($result1)) {
 
                         ?>
                             <tr>
-                              <td><?php echo $rows['id']; ?></td>
+                              <td><?php echo $i++; ?></td>
                               <td><?php echo $rows['name']; ?></td>
 
                               <td><?php echo $rows['link']; ?></td>
                               <td><?php echo '<img class="mini" src="data:image/jpeg;base64,' . base64_encode($rows['image']) . '"/>'; ?></td>
 
                               <td><?php echo $rows['date']; ?></td>
-                              <td> <a href="https://localhost/naamyaa/about.php">more</a> </td>
+                              <td> <a href="https://naamyaafoundation.org/whatwedo.php">More</a> </td>
                               <td><a href="update.php?edit=<?php echo $rows['id']; ?>" class="btn btn-warning">Update</a></td>
                               <td> <a href="delete.php?delete=<?php echo $rows['id']; ?>" class="btn btn-danger">Delete</a>
                               <td> <?php
@@ -147,16 +147,17 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                         <tr>
                         <tr>
-                          <th>ID</th>
-                          <th>Name</th>
-                          <th>Address</th>
+                        <th>S.NO</th>
+                          <th>Title</th>
 
-                          <th>image</th>
-                          <th>date</th>
-                          <th>Deatails</th>
-                          <th>Action1</th>
-                          <th>Action2</th>
-                          <th>Action3</th>
+                          <th>Link</th>
+                          <th>Image</th>
+
+                          <th>Date</th>
+                          <th>Details</th>
+                          <th>Update</th>
+                          <th>Delete</th>
+                          <th>Status</th>
                         </tr>
                         </tr>
                       </tfoot>

@@ -8,16 +8,7 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
-            </div>
-        </div>
-
+        <!-- Sidebar user panel (optional) -->    
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -35,7 +26,7 @@
                         <li class="nav-item">
                             <a href="./pages/categories/categories.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Categries
+                                <p>Categories
                                 </p>
                             </a>
                         </li>
@@ -45,10 +36,6 @@
                                 <p>Event</p>
                             </a>
                         </li>
-
-
-
-
                     </ul>
                 </li>
                 
@@ -65,7 +52,7 @@
                         <li class="nav-item">
                             <a href="./pages/goal/Event.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Goal</p>
+                                <p>Add Goal</p>
                             </a>
                         </li>
 
@@ -87,7 +74,6 @@
                                 <p>Contact us</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
 
@@ -96,7 +82,6 @@
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Our Team
-
                         </p>
                         <i class="right fas fa-angle-left"></i>
                     </a>
@@ -104,16 +89,15 @@
                         <li class="nav-item">
                             <a href="./pages/user-master/user.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>volunteer</p>
+                                <p>Volunteer</p>
                             </a>
                         </li>
-
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./pages/keypepole/pepole.php" class="nav-link">
+                            <a href="./pages/keypepole/people.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Key Pepole</p>
+                                <p>Key People</p>
                             </a>
                         </li>
 
@@ -124,9 +108,7 @@
                         <i class="nav-icon far fa-image"></i>
                         <p>
                             Gallery
-
                             <i class="fas fa-angle-left right"></i>
-
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -155,7 +137,6 @@
                                 <p>Photos Gallery</p>
                             </a>
                         </li>
-
                     </ul>
 
                 </li>
@@ -236,9 +217,6 @@
 
                     </ul>
                 </li>
-
-
-
 
             </ul>
         </nav>

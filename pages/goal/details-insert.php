@@ -117,18 +117,18 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                         </div>
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Title</label>
-                            <input name="title" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                            <input name="title" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Title">
 
                         </div>
 
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Title image</label>
-                            <input name="image1" type="file" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Goal image</label>
+                            <input name="image1" type="file" id="defaultForm-email" class="form-control validate" placeholder="Enter Goal">
 
                         </div>
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Details</label>
-                            <textarea name="details1" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                            <textarea name="details1" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Details">
 
                             </textarea>
                         </div>
@@ -153,7 +153,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                             <select name="status" class="form-control" id="exampleFormControlSelect1">
 
                                 <option value='1'>Active</option>
-                                <option value='0'>DeActive</option>
+                                <option value='0'>Deactive</option>
 
                             </select>
                         </div>

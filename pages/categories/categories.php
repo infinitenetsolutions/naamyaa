@@ -15,7 +15,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | DataTables</title>
+    <title>Naamyaa Foundation </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -75,7 +75,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">All Event of The Product</h3>
+                    <h3 class="card-title">All Category</h3>
                   </div>
                   <!-- /.card-header -->
                   <?php
@@ -85,19 +85,18 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                   ?>
              
                   <div class="card-body">
-                  <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add new item
+                  <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add New Category
                   </a>
                     <table id="example1" class="table table-bordered table-striped">
 
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Name</th>
-                         
-                          <th>date</th>
-                          <th>Deatails</th>
-                          <th>Action1</th>
-                          <th>Action2</th>
+                          <th>Name</th>                         
+                          <th>Date</th>
+                          <th>Update</th>
+                          <th>Delete</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
 
@@ -134,13 +133,12 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <tfoot>
                         <tr>
                         <tr>
-                          <th>ID</th>
-                          <th>Name</th>
-                          <th>date</th>
-                     
-                          <th>Action1</th>
-                          <th>Action2</th>
-                          <th>Action3</th>
+                        <th>ID</th>
+                          <th>Name</th>                         
+                          <th>Date</th>
+                          <th>Update</th>
+                          <th>Delete</th>
+                          <th>Status</th>
                         </tr>
                         </tr>
                       </tfoot>

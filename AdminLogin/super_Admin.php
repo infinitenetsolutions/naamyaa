@@ -4,7 +4,7 @@ include './function.inc.php';
 if (isset($_POST['done'])) {
     include '../connection.inc.php';
 
-    $username = username($_POST['username']);
+    $username = $_POST['username'];
     $email = emailId($_POST['username']);
 
     $password = $_POST['password'];

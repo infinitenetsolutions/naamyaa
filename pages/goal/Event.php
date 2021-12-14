@@ -15,7 +15,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | DataTables</title>
+  <title>Naamyaa Foundation </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -53,16 +53,16 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>goal</h1>
+              <h1>Goal</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">goal</li>
+                <li class="breadcrumb-item active">Goal</li>
 
               </ol>
             </div>
-            <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add new item
+            <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add New Goal
             </a>
           </div>
         </div><!-- /.container-fluid -->
@@ -78,7 +78,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">All goal of The Product</h3>
+                  <h3 class="card-title">All Goal</h3>
                 </div>
                 <!-- /.card-header -->
                 <?php
@@ -95,14 +95,14 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Categories</th>
+                        <th>Category</th>
                         <th>Amount</th>
                         <th>Images</th>
-                        <th>date</th>
+                        <th>Date</th>
          
-                        <th>Action1</th>
-                        <th>Action2</th>
-                        <th>Action3</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                        <th>Status</th>
                       </tr>
                     </thead>
 
@@ -158,16 +158,16 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                     <tfoot>
                       <tr>
                       <tr>
-                        <th>ID</th>
+                      <th>ID</th>
                         <th>Name</th>
-                        <th>Categories</th>
+                        <th>Category</th>
                         <th>Amount</th>
                         <th>Images</th>
-                        <th>date</th>
-                    
-                        <th>Action1</th>
-                        <th>Action2</th>
-                        <th>Action3</th>
+                        <th>Date</th>
+         
+                        <th>Update</th>
+                        <th>Delete</th>
+                        <th>Status</th>
                       </tr>
                       </tr>
                     </tfoot>

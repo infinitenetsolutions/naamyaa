@@ -129,11 +129,21 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <p>date - <?php echo $row['date']; ?></p>
                       <p>priority - <?php echo $row['priority']; ?></p>
                       <p>date - <?php echo $row['date']; ?></p>
-                      <p>image - <?php echo '<img class="mini_img" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"/>'; ?></p>
+                      <p>image - <?php echo '<img width="200" class="mini_img img-fluid" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"/>'; ?></p>
 
                       <p>description - <?php echo $row['description']; ?></p>
-                      <p>Thanks,<br><?php echo $row['name']; ?></p>
-                    </div>
+
+                      <br>
+                      <br>
+                      <b>Social Media Links</b>
+                      <br>
+                      <br>
+                      <?php $select = "SELECT * FROM `social_media` WHERE  `reid`=$id";
+                      $result = mysqli_query($connection, $select);
+                      while ($row = mysqli_fetch_array($result)) { ?>
+                      <a href="<?php echo $row['link']; ?>">  <i class="fab fa-<?php echo $row['name'] ?>"> </i></a>
+                      
+                      <?php } ?>                    </div>
                     <!-- /.mailbox-read-message -->
                   </div>
                   <!-- /.card-body -->

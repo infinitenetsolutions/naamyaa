@@ -1,6 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
 
 $msg = "";
 $row = "";
@@ -31,63 +30,101 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
         <html lang="en">
 
 
-     <?php include '../navfootersider/updatenav.php'; ?>
-                    <form method="post" enctype="multipart/form-data">
-
-                        <div class="mb-3">
+        <?php include '../navfootersider/updatenav.php'; ?>
 
 
-                            <label for="exampleInputEmail1" class="form-label">Id</label>
-                            <input disabled type="text" value="<?php echo $id; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" pattern="[A-Za-z0-9]+">
-
-                        </div>
-
-                        <div class="mb-3">
-
-
-                            <label for="exampleInputEmail1" class="form-label">link</label>
-                            <input type="text" name="link" value="<?php echo $link; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                        </div>
-                        <div class="mb-3">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="card p-2">
+                                <div class="row">
 
 
-                            <label for="exampleInputEmail1" class="form-label">date</label>
-                            <input type="file" name="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <div class="mb-3 col-md-4">
+                                        <label for="exampleInputEmail1" class="form-label">Link</label>
+                                        <input type="text" name="link" value="<?php echo $link; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-3 col-md-4">
+                                        <label for="exampleInputEmail1" class="form-label">Image</label>
+                                      <div class="row">
+                                          <div class="col-sm-6">
+                                          <input type="file" accept="image/*" name="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-                        </div>
-                        <div class="mb-3">
+                                          </div>
+                                          <div class="col-sm-6">
+                                          <img <?php echo '<img class="mini" src="data:image/jpeg;base64,' . base64_encode($image) . '"/>'; ?>
+
+                                              </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="mb-3 col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Select Status</label>
+                                            <select name="status" class="form-control" id="exampleFormControlSelect1">
+
+                                                <option value='1'>Active</option>
+                                                <option value='0'>Deactive</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 col-md-12">
+                                        <label for="exampleInputEmail1" class="form-label">Description</label>
+                                        <textarea type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                       <?php echo $description; ?> </textarea>
+                                    </div>
 
 
-                            <label for="exampleInputEmail1" class="form-label">description</label>
-                            <textarea type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <?php echo $description; ?> </textarea>
-                        </div>
+                                    <div class="mb-3 col-md-8">
+                                        <label for="exampleInputEmail1" class="form-label"> </label>
+                                        <button type="submit" name="Submit" class="btn btn-primary p-2">Submit</button>
+                                        <h3><?php echo $msg; ?></h3>
+                                    </div>
 
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
 
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Select Status</label>
-                            <select name="status" class="form-control" id="exampleFormControlSelect1">
+        </section>
 
-                                <option value='1'>Active</option>
-                                <option value='0'>DeActive</option>
+        <!-- Optional JavaScript; choose one of the two! -->
 
-                            </select>
-                        </div>
-                        <button type="submit" name="Submit" class="btn btn-primary centre">Submit</button>
-                        <h3><?php echo $msg; ?></h3>
-                    </form>
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+        </script>
 
-                    <!-- Optional JavaScript; choose one of the two! -->
-
-                    <!-- Option 1: Bootstrap Bundle with Popper -->
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
-                    <!-- Option 2: Separate Popper and Bootstrap JS -->
-                    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
+        <!-- jQuery -->
+        <script src="../../plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.js"></script>
+        <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <!-- page script -->
+        <script>
+            $(function() {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                });
+            });
+        </script>
 
         </body>
 
@@ -103,52 +140,63 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
 if (isset($_POST['Submit'])) {
 
     $link = $_POST['link'];
-    $date    = $_POST['date'];
     $description = $_POST['description'];
 
     $status = simplename($_POST['status']);
-    if ($status == 1 || $status == 0) {
 
-        $update = "UPDATE `Gallery` SET `description`='$description',`link`='$link',`status`='$status' WHERE  id=$id";
-        $result1 = mysqli_query($connection, $update);
+    $update = "UPDATE `Gallery` SET `description`='$description',`link`='$link',`status`='$status' WHERE  id=$id";
+    $result1 = mysqli_query($connection, $update);
 
 
-        if (count($_FILES) > 0) {
-            if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+    if (count($_FILES) > 0) {
+        if (is_uploaded_file($_FILES['image']['tmp_name'])) {
 
-                $imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-                $sql = "UPDATE Gallery set `photos`='$imgData' WHERE `id`='$id' ";
-                $current_id = mysqli_query($connection, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($connection));
-                if (isset($current_id) && $type == 'media') {
-                    echo "<script>
-                        window.location.replace('../../pages/Gallery/mediagallery.php')
-                    </script>";
-                }
-                if (isset($current_id) && $type == 'video') {
-                    echo "<script>
-                        window.location.replace('../../pages/Gallery/photosgallery.php')
-                    </script>";
-                }
-            }
+            $imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+            $sql = "UPDATE Gallery set `photos`='$imgData' WHERE `id`='$id' ";
+            $current_id = mysqli_query($connection, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($connection));
         }
+    }
 
-        if ($result1 && $type == 'media') {
+    if ($result1 && $type == 'media') {
 
 
-            echo "<script>
-                            window.location.replace('../../pages/Gallery/mediagallery.php')
-                        </script>";
-        }
-        if ($result1 && $type == 'video') {
-            echo "<script>
-            window.location.replace('../../pages/Gallery/photosgallery.php')
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success</strong> Your Data Successfully Added into the Database
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>';
+
+        echo "<script>
+            setTimeout(function() {
+                window.location.replace('mediagallery.php');
+
+              }, 1000);
+
         </script>";
-        } else {
-            echo "<p class='col'>data already exits</p>";
-        }
+    } elseif ($result1 && $type == 'video') {
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success</strong> Your Data Successfully Added into the Database
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>';
+
+        echo "<script>
+            setTimeout(function() {
+                window.location.replace('photosgallery.php');
+
+              }, 1000);
+
+        </script>";
     } else {
-        $msg = "Enter status in 1 (Active) & 0 (DeActive)";
-        echo $msg;
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong>  ' . $connection->error . '
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>';
     }
 }
+
 ?>

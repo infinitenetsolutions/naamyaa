@@ -64,7 +64,7 @@ $cat_r = mysqli_query($connection, $categrie);
 ?>
 
 <div class="modal fade" id="insert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <form action="" method="POST">
                 <div class="modal-header text-center">
@@ -81,7 +81,7 @@ $cat_r = mysqli_query($connection, $categrie);
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">Event
                                     Name</label>
                                 <input name="name" type="text" id="defaultForm-email" class="form-control validate"
-                                    placeholder="Enter Caregorie Name">
+                                    placeholder="Enter Event Name">
 
                             </div>
                             <div class="md-form col-sm-4">
@@ -99,15 +99,15 @@ $cat_r = mysqli_query($connection, $categrie);
 
                             <div class="md-form col-sm-4">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">Event
-                                    address</label>
+                                    Address</label>
                                 <input name="address" type="text" id="defaultForm-email" class="form-control validate"
-                                    placeholder="Enter Caregorie Name">
+                                    placeholder="Enter Address">
 
                             </div>
                             <div class="md-form col-sm-4">
-                                <label data-error="wrong" data-success="right" for="defaultForm-email">country</label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Country</label>
                                 <select name="country" type="text" id="defaultForm-email" class="form-control validate"
-                                    placeholder="Enter Caregorie Name">
+                                    >
                                     <option value="india" selected>india</option>
                                 </select>
 
@@ -116,7 +116,7 @@ $cat_r = mysqli_query($connection, $categrie);
                             <div class="md-form col-sm-4">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">State</label>
                                 <select name="state" type="text" id="defaultForm-email" class="form-control validate"
-                                    placeholder="Enter Caregorie Name">
+                                    >
                                     <?php
                             
                             // $api = "https://countriesnow.space/api/v0.1/countries/states";
@@ -170,20 +170,20 @@ $cat_r = mysqli_query($connection, $categrie);
                             <div class="md-form col-sm-4">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email"> City </label>
                                 <input name="city" type="text" id="defaultForm-email" class="form-control validate"
-                                    placeholder="Enter Caregorie Name">
+                                    placeholder="Enter City Name">
 
                             </div>
                             <div class="md-form col-sm-4">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">Event
                                     Date</label>
                                 <input name="date" type="date" id="defaultForm-email" class="form-control validate"
-                                    placeholder="Enter Caregorie Name">
+                                    >
 
                             </div>
                             <div class="md-form col-sm-4">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">End Date</label>
                                 <input name="enddate" type="date" id="defaultForm-email" class="form-control validate"
-                                    placeholder="Enter Caregorie Name">
+                                    >
 
                             </div>
 

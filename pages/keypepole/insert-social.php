@@ -7,8 +7,6 @@ include '../../AdminLogin/function.inc.php';
 if (isset($_POST['add'])) {
     $name = $_POST['name'];
     $link = $_POST['link'];
-    echo  "<br>";
-
 
 
     if ($name != null) {
@@ -17,9 +15,27 @@ if (isset($_POST['add'])) {
         $insert = "INSERT INTO `social_media`( `name`, `link`, `reid`, `table_name`) VALUES ('$name','$link','$id','keypepole')";
         $result = mysqli_query($connection, $insert);
         if ($result > 0) {
-            $msg= "<p class='success'>Event Added successfully Refresh the page</p>";
+            echo '<div class="ml-5  alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success</strong> Your Data Successfully Added into the Database
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>';
+
+            echo "<script>
+            setTimeout(function() {
+                window.location.replace('read-mail.php?read=$id');
+
+              }, 1000);
+
+        </script>";
         } else {
-            echo "<p class='col'>data already exits</p>";
+            echo '<div ml-5 class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Alert!</strong>  ' . $connection->error . '
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>';
         }
     }
 }
@@ -47,7 +63,7 @@ if (isset($_POST['add'])) {
                 </div>
                 <div class="modal-body mx-3">
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Link</label>
+                        <label for="exampleFormControlSelect1">Social Media</label>
                         <select name="name" class="form-control" id="exampleFormControlSelect1">
 
                             <option value='facebook'> Facebook</option>
@@ -65,18 +81,16 @@ if (isset($_POST['add'])) {
                         </select>
                     </div>
                     <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">Name</label>
-                        <input name="link" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Link</label>
+                        <input name="link" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Name">
 
                     </div>
-
-
 
 
                     <?php echo $msg; ?>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button name="add" class="btn btn-default">Add Pepole</button>
+                    <button name="add" class="btn btn-default">Add</button>
                 </div>
             </form>
         </div>

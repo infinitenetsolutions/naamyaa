@@ -2,8 +2,8 @@
 include '../../connection.inc.php';
 
 if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
-  $select = "SELECT * FROM `volunteer` WHERE 1";
-  $result = mysqli_query($connection, $select);
+  $volunteer = "SELECT * FROM `volunteer` WHERE 1";
+  $result_volunteer = mysqli_query($connection, $volunteer);
 
 ?>
   <!DOCTYPE html>
@@ -12,7 +12,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | DataTables</title>
+    <title>Naamyaa Foundation </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -47,18 +47,18 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>volunteer</h1>
+                <h1>Volunteer</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">volunteer</li>
+                  <li class="breadcrumb-item active">Volunteer</li>
                 </ol>
               </div>
             </div>
           </div><!-- /.container-fluid -->
-          <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add volunteer
-                  </a>
+          <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add Volunteer
+          </a>
         </section>
 
         <!-- Main content -->
@@ -71,7 +71,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">volunteer</h3>
+                    <h3 class="card-title">Volunteer</h3>
                   </div>
                   <!-- /.card-header -->
 
@@ -85,48 +85,49 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                           <th>Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Department</th>
-                      
+                          <th>Address</th>
+
                           <th>Date/Time</th>
                           <th>Details</th>
-                          <th>Action1</th>
-                          <th>Action2</th>
+                          <th>Status</th>
+                          <th>Delete</th>
                         </tr>
                       </thead>
 
                       <tbody>
 
                         <?php
-
-                        if (mysqli_num_rows($result) > 0) {
-                          while ($rows = mysqli_fetch_array($result)) {
+                        $i = 1;
+                        while ($rows = mysqli_fetch_array($result_volunteer)) {
 
                         ?>
-                            <tr>
-                              <td><?php echo $rows['id']; ?></td>
-                              <td><?php echo $rows['name']; ?></td>
-                              <td><?php echo $rows['email']; ?></td>
-                              <td><?php echo $rows['phone']; ?></td>
-                              <td><?php echo $rows['department']; ?></td>
+                          <tr>
+                            <td><?php echo $i++; ?></td>
+                            <td><?php echo $rows['name']; ?></td>
+                            <td><?php echo $rows['email']; ?></td>
+                            <td><?php echo $rows['phone']; ?></td>
+                            <td><?php echo $rows['address']; ?></td>
 
-                              <td><?php echo $rows['date']; ?></td>
+                            <td><?php echo $rows['date']; ?></td>
 
-                              <td> <a href="read-mail.php?read=<?php echo $rows['id']; ?>">Read..</a></td>
-                              <td> <?php
-                                    if ($rows['status'] == 1) {
-                                      echo "<a class='btn btn-success' href='activedeactive.php?type=status&operation=deactive&id=" . $rows['id'] . "'>Active</a>";
-                                    } else {
-                                      echo "<a class='btn btn-secondary' href='activedeactive.php?type=status&operation=active&id=" . $rows['id'] . "'>Deactive</a>";
-                                    }
+                            <td> <a href="read-mail.php?read=<?php echo $rows['id']; ?>">Read..</a></td>
+                            <td> <a href="update.php?edit=<?php echo $rows['id']; ?>" class="btn btn-warning">Update</a></td>
 
-                                    ?>
-                              </td>
-                              <td> <a href="delete.php?delete=<?php echo $rows['id']; ?>" class="btn btn-danger">Delete</a></td>
+                            <td> <?php
+                                  if ($rows['status'] == 1) {
+                                    echo "<a class='btn btn-success' href='activedeactive.php?type=status&operation=deactive&id=" . $rows['id'] . "'>Active</a>";
+                                  } else {
+                                    echo "<a class='btn btn-secondary' href='activedeactive.php?type=status&operation=active&id=" . $rows['id'] . "'>Deactive</a>";
+                                  }
+
+                                  ?>
+                            </td>
+                            <td> <a href="delete.php?delete=<?php echo $rows['id']; ?>" class="btn btn-danger">Delete</a></td>
 
 
-                            </tr>
+                          </tr>
                         <?php }
-                        } ?>
+                        ?>
                       </tbody>
                       <tfoot>
                         <tr>
@@ -134,13 +135,13 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                           <th>Name</th>
                           <th>Email</th>
                           <th>Mobile</th>
-                          <th>Department</th>
-                         
+                          <th>Address</th>
+
                           <th>Date/Time</th>
                           <th>Details</th>
 
-                          <th>Action1</th>
-                          <th>Action2</th>
+                          <th>Status</th>
+                          <th>Delete</th>
                         </tr>
                       </tfoot>
                     </table>

@@ -38,7 +38,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
       <!-- /.navbar -->
       <?php include './insert-social.php'; ?>
       <!-- Main Sidebar Container -->
-      
+
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -47,10 +47,10 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
             <div class="row mb-2">
               <div class="col-sm-6">
                 <h1>Volunteer</h1>
-        
+
                 <p>
-                 
-                <?php echo $msg; ?></p>
+
+                  <?php echo $msg; ?></p>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -72,7 +72,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                 <div class="card">
                   <div class="card-header">
                     <h3 class="card-title">Add Social media</h3>
-                 
+
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="modal" data-target="#insert_social"><i class="fas fa-minus"></i>
                       </button>
@@ -97,7 +97,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                     </div>
 
                   </div>
-          
+
                   <!-- /.card-header -->
                   <div class="card-body p-0">
                     <div class="mailbox-read-info">
@@ -126,17 +126,28 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <p>email - <?php echo $row['email']; ?></p>
                       <p>phone - <?php echo $row['phone']; ?></p>
                       <p>department - <?php echo $row['department']; ?></p>
-                   
+
                       <p>date of join - <?php echo $row['date']; ?></p>
                       <p>occupation - <?php echo $row['occupation']; ?></p>
-       
+
                       <p>address - <?php echo $row['address']; ?></p>
                       <p>wheretoknow - <?php echo $row['wheretoknow']; ?></p>
 
-                      <p>image - <?php echo '<img class="mini_img" src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '"/>'; ?></p>
+                      <p>image - <?php echo '<img " class="mini_img img-fluid"src="data:image/jpeg;base64,' . base64_encode($row['Image']) . '"/>'; ?></p>
 
                       <p>description - <?php echo $row['whyjoin']; ?></p>
-                      <p>Thanks,<br><?php echo $row['name']; ?></p>
+
+                      <br>
+                      <br>
+                      <b>Social Media Links</b>
+                      <br>
+                      <br>
+                      <?php $select = "SELECT * FROM `social_media` WHERE  `reid`=$id";
+                      $result = mysqli_query($connection, $select);
+                      while ($row = mysqli_fetch_array($result)) { ?>
+                      <a href="<?php echo $row['link']; ?>">  <i class="fab fa-<?php echo $row['name'] ?>"> </i></a>
+                      
+                      <?php } ?>
                     </div>
                     <!-- /.mailbox-read-message -->
                   </div>

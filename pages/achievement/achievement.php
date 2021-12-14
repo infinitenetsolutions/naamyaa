@@ -9,10 +9,10 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
 
 ?>
-<script>
+  <script>
 
 
-</script>
+  </script>
   <!DOCTYPE html>
   <html>
 
@@ -68,7 +68,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
             </div>
           </div><!-- /.container-fluid -->
           <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add new Pepole
-                  </a>
+          </a>
         </section>
 
         <!-- Main content -->
@@ -89,19 +89,19 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                   include 'insert.php';
                   // include 'update.php';
                   ?>
-                
+
                   <div class="card-body">
 
                     <table id="example1" class="table table-bordered table-striped">
 
                       <thead>
                         <tr>
-                          <th>ID</th>
+                          <th>S.NO</th>
                           <th>Title</th>
-                  
+
                           <th>link</th>
                           <th>image</th>
-                         
+
                           <th>date</th>
                           <th>Deatails</th>
                           <th>Action1</th>
@@ -113,18 +113,18 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <tbody>
 
                         <?php
-
+                        $i = 1;
                         if (mysqli_num_rows($result1) > 0) {
                           while ($rows = mysqli_fetch_array($result1)) {
 
                         ?>
                             <tr>
-                              <td><?php echo $rows['id']; ?></td>
+                              <td><?php echo $i++; ?></td>
                               <td><?php echo $rows['name']; ?></td>
-                     
+
                               <td><?php echo $rows['link']; ?></td>
                               <td><?php echo '<img class="mini" src="data:image/jpeg;base64,' . base64_encode($rows['image']) . '"/>'; ?></td>
-                   
+
                               <td><?php echo $rows['date']; ?></td>
                               <td> <a href="https://localhost/naamyaa/about.php">more</a> </td>
                               <td><a href="update.php?edit=<?php echo $rows['id']; ?>" class="btn btn-warning">Update</a></td>
@@ -146,7 +146,8 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <tfoot>
                         <tr>
                         <tr>
-                        <th>ID</th>
+                          <th>S.NO</th>
+
                           <th>Name</th>
                           <th>Address</th>
 

@@ -15,7 +15,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | DataTables</title>
+    <title>Naamyaa Foundation </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,7 +64,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
             </div>
           </div><!-- /.container-fluid -->
           <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add new Pepole
-                  </a>
+          </a>
         </section>
 
         <!-- Main content -->
@@ -77,7 +77,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">All KeyPepole of The Product</h3>
+                    <h3 class="card-title">All KeyPepole</h3>
                   </div>
                   <!-- /.card-header -->
                   <?php
@@ -85,37 +85,37 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                   include 'insert.php';
                   // include 'update.php';
                   ?>
-                
+
                   <div class="card-body">
 
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="example1" class="table-responsive table table-bordered table-striped">
 
                       <thead>
                         <tr>
-                          <th>ID</th>
+                          <th>S.NO</th>
                           <th>Name</th>
                           <th>Address</th>
-                          <th>post</th>
-                          <th>image</th>
-                          <th>priority</th>
-                          <th>date</th>
-                          <th>Deatails</th>
-                          <th>Action1</th>
-                          <th>Action2</th>
-                          <th>Action3</th>
+                          <th>Post</th>
+                          <th>Image</th>
+                          <th>Priority</th>
+                          <th>Date</th>
+                          <th>Details</th>
+                          <th>Update</th>
+                          <th>Delete</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
 
                       <tbody>
 
                         <?php
-
+$i=1;
                         if (mysqli_num_rows($result1) > 0) {
                           while ($rows = mysqli_fetch_array($result1)) {
 
                         ?>
                             <tr>
-                              <td><?php echo $rows['id']; ?></td>
+                              <td><?php echo $i++; ?></td>
                               <td><?php echo $rows['name']; ?></td>
                               <td><?php echo $rows['address']; ?></td>
                               <td><?php echo $rows['post']; ?></td>
@@ -142,17 +142,17 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <tfoot>
                         <tr>
                         <tr>
-                        <th>ID</th>
+                          <th>S.NO</th>
                           <th>Name</th>
                           <th>Address</th>
-                          <th>post</th>
-                          <th>image</th>
-                          <th>priority</th>
-                          <th>date</th>
-                          <th>Deatails</th>
-                          <th>Action1</th>
-                          <th>Action2</th>
-                          <th>Action3</th>
+                          <th>Post</th>
+                          <th>Image</th>
+                          <th>Priority</th>
+                          <th>Date</th>
+                          <th>Details</th>
+                          <th>Update</th>
+                          <th>Delete</th>
+                          <th>Status</th>
                         </tr>
                         </tr>
                       </tfoot>

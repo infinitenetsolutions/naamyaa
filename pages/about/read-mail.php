@@ -36,7 +36,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
       include '../navfootersider/aside.php';
       ?>
       <!-- /.navbar -->
-      <?php include './insert-social.php'; ?>
+      <?php// include './insert-social.php'; ?>
       <!-- Main Sidebar Container -->
       
       <!-- Content Wrapper. Contains page content -->
@@ -54,7 +54,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                   <li class="breadcrumb-item active">keypepole</li>
                   <p>
                  
-                 <?php echo $msg; ?></p>
+                 <?php //echo $msg; ?></p>
                 </ol>
               </div>
             </div>

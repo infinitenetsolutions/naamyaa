@@ -11,7 +11,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | DataTables</title>
+    <title>Naamyaa Foundation </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -55,12 +55,12 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Media Gallery</h1>
+                <h1>Photo Gallery</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Media Gallery Images </li>
+                  <li class="breadcrumb-item active">Photo Gallery Images </li>
                 </ol>
               </div>
             </div>
@@ -79,19 +79,19 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">All Media Gallery of The Images</h3>
+                    <h3 class="card-title">All Photo Gallery</h3>
                   </div>
 
-                  <div class="card-body">
+                  <div class="card-body table-responsive ">
 
                     <table id="example1" class="table table-bordered table-striped">
 
                       <thead>
                         <tr>
-                          <th>ID</th>
+                          <th>S.NO</th>
                           <th>Images</th>
-                          <th>Action1</th>
-                          <th>Action2</th>
+                          <th>Update</th>
+                          <th>Delete</th>
                           <th>Status</th>
                         </tr>
                       </thead>
@@ -99,22 +99,22 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <tbody>
 
                         <?php
-
+                        $i = 1;
                         if (mysqli_num_rows($imageresult) > 0) {
                           while ($rowimage = mysqli_fetch_array($imageresult)) {
                             $id = $rowimage['id'];
 
                         ?>
                             <tr>
-                              <td><?php echo $rowimage['id']; ?></td>
+                              <td><?php echo $i++; ?></td>
 
                               <td>
-                                <a <?php echo ' href="data:image/jpeg;base64,' . base64_encode($rowimage['photos']) . '"' ?> data-toggle="lightbox" data-title="Slider Images">
-                                  <img height="30px" width="30px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($rowimage['photos']) . '"' ?> class="img-fluid mb-2" alt="Slider Images" />
+                                <a <?php echo ' href="data:image/jpeg;base64,' . base64_encode($rowimage['photos']) . '"' ?> data-toggle="lightbox" data-title=" Images">
+                                  <img height="30px" width="30px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($rowimage['photos']) . '"' ?> class="img-fluid mb-2" alt=" Images" />
                                 </a>
                               </td>
                               <td><a href="update.php?edit=<?php echo $rowimage['id']; ?>&type=video" class="btn btn-warning">Update</a></td>
-                              <td> <a href="delete.php?del-media=<?php echo $rowimage['id']; ?>" class="btn btn-danger">Delete</a>
+                              <td> <a href="delete.php?del-photos=<?php echo $rowimage['id']; ?>" class="btn btn-danger">Delete</a>
                               <td> <?php
                                     if ($rowimage['status'] == 1) {
                                       echo "<a class='btn btn-success' href='activedeactive.php?type=photos&operation=deactive&id=" . $rowimage['id'] . "'>Active</a>";
@@ -132,10 +132,10 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       </tbody>
                       <tfoot>
                         <tr>
-                          <th>ID</th>
+                        <th>S.NO</th>
                           <th>Images</th>
-                          <th>Action1</th>
-                          <th>Action2</th>
+                          <th>Update</th>
+                          <th>Delete</th>
                           <th>Status</th>
                         </tr>
                       </tfoot>

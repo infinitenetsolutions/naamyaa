@@ -21,7 +21,63 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
         $date = $row['date'];
         $description = $row['description'];
         $status = $row['status'];
+        if (isset($_POST['Submit'])) {
+            $cat = simplename($_POST['name']);
+            $link = $_POST['link'];
+            $date    = $_POST['date'];
+            $description = $_POST['description'];
 
+            $status = simplename($_POST['status']);
+
+            $update = "UPDATE `whatwedo` SET `name`='$cat',`description`='$description',`link`='$link',`date`='$date',`status`='$status' WHERE id=$id";
+            $result1 = mysqli_query($connection, $update);
+
+
+            $msg = '';
+
+            if ($result1) {
+                if (!empty($_FILES['image']['tmp_name'])) {
+                    $imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
+                    $sql = "UPDATE whatwedo set `image`='$imgData' WHERE `id`='$id' ";
+                    $current_id = mysqli_query($connection, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($connection));
+                    if (isset($current_id)) {
+                        $msg = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success</strong> Your Data Successfully Added into the Database
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>';
+
+                        echo "<script>
+                        setTimeout(function() {
+                          window.location.replace('achievement.php');
+                          }, 1000);
+                
+                    </script>";
+                    }
+                }
+                $msg = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success</strong> Your Data Successfully Added into the Database
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>';
+                echo $msg;
+                echo "<script>
+                setTimeout(function() {
+                  window.location.replace('achievement.php');
+                  }, 1000);
+        
+            </script>";
+            } else {
+                echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Alert!</strong>  ' . $connection->error . '
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>';
+            }
+        }
 ?>
 
 
@@ -31,7 +87,7 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
         <head>
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <title>AdminLTE 3 | DataTables</title>
+            <title>Naamyaa Foundation </title>
             <!-- Tell the browser to be responsive to screen width -->
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -82,61 +138,49 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
 
                     </section>
                     <form method="post" enctype="multipart/form-data">
+                        <div class="card p-2">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="mb-3 col-sm-4">
+                                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                                        <input type="text" name="name" value="<?php echo $name; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-3 col-sm-4">
+                                        <label for="exampleInputEmail1" class="form-label">Link</label>
+                                        <input type="text" name="link" value="<?php echo $link; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-3 col-sm-4">
+                                        <label for="exampleInputEmail1" class="form-label">Date</label>
+                                        <input type="date" name="date" value="<?php echo $date; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
 
-                        <div class="mb-3">
+                                    <div class="mb-3 col-sm-3">
+                                        <label for="exampleInputEmail1" class="form-label">Image</label>
+                                        <input type="file" name="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
 
+                                    <div class="form-group col-sm-2">
+                                        <label for="exampleFormControlSelect1">Select Status</label>
+                                        <select name="status" class="form-control" id="exampleFormControlSelect1">
 
-                            <label for="exampleInputEmail1" class="form-label">Id</label>
-                            <input disabled type="text" value="<?php echo $id; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" pattern="[A-Za-z0-9]+">
+                                            <option value='1'>Active</option>
+                                            <option value='0'>DeActive</option>
 
-                        </div>
-                        <div class="mb-3">
+                                        </select>
+                                    </div>
 
-
-                            <label for="exampleInputEmail1" class="form-label">name</label>
-                            <input type="text" name="name" value="<?php echo $name; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                        </div>
-                        <div class="mb-3">
-
-
-                            <label for="exampleInputEmail1" class="form-label">link</label>
-                            <input type="text" name="link" value="<?php echo $link; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                        </div>
-                        <div class="mb-3">
-
-
-                            <label for="exampleInputEmail1" class="form-label">date</label>
-                            <input type="date" name="date" value="<?php echo $date; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                        </div>
-                        <div class="mb-3">
-
-
-                            <label for="exampleInputEmail1" class="form-label">description</label>
-                            <textarea type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <div class="mb-3 col-md-7">
+                                        <label for="exampleInputEmail1" class="form-label">Description</label>
+                                        <textarea cols="10" rows="10" type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     <?php echo $description; ?> </textarea>
+                                    </div>
+
+
+                                    <button type="submit" name="Submit" class="btn btn-primary centre p-2">Submit</button>
+                                    <h3><?php echo $msg; ?></h3>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-
-
-                            <label for="exampleInputEmail1" class="form-label">date</label>
-                            <input type="file" name="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Select Status</label>
-                            <select name="status" class="form-control" id="exampleFormControlSelect1">
-
-                                <option value='1'>Active</option>
-                                <option value='0'>DeActive</option>
-
-                            </select>
-                        </div>
-                        <button type="submit" name="Submit" class="btn btn-primary centre">Submit</button>
-                        <h3><?php echo $msg; ?></h3>
                     </form>
 
                     <!-- Optional JavaScript; choose one of the two! -->
@@ -144,11 +188,31 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
                     <!-- Option 1: Bootstrap Bundle with Popper -->
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
-                    <!-- Option 2: Separate Popper and Bootstrap JS -->
-                    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
+                    <!-- jQuery -->
+                    <script src="../../plugins/jquery/jquery.min.js"></script>
+                    <!-- Bootstrap 4 -->
+                    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+                    <!-- DataTables -->
+                    <script src="../../plugins/datatables/jquery.dataTables.js"></script>
+                    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+                    <!-- AdminLTE App -->
+                    <script src="../../dist/js/adminlte.min.js"></script>
+                    <!-- AdminLTE for demo purposes -->
+                    <script src="../../dist/js/demo.js"></script>
+                    <!-- page script -->
+                    <script>
+                        $(function() {
+                            $("#example1").DataTable();
+                            $('#example2').DataTable({
+                                "paging": true,
+                                "lengthChange": false,
+                                "searching": false,
+                                "ordering": true,
+                                "info": true,
+                                "autoWidth": false,
+                            });
+                        });
+                    </script>
 
         </body>
 
@@ -161,45 +225,5 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
 } else {
     header('location: ../../pages/achievement/achievement.php');
 }
-if (isset($_POST['Submit'])) {
-    $cat = simplename($_POST['name']);
-    $link = $_POST['link'];
-    $date    = $_POST['date'];
-    $description = $_POST['description'];
 
-    $status = simplename($_POST['status']);
-    if ($status == 1 || $status == 0) {
-
-        $update = "UPDATE `whatwedo` SET `name`='$cat',`description`='$description',`link`='$link',`date`='$date',`status`='$status' WHERE id=$id";
-        $result1 = mysqli_query($connection, $update);
-
-
-
-
-        if ($result1) {
-
-            if (count($_FILES) > 0) {
-                if (is_uploaded_file($_FILES['image']['tmp_name'])) {
-
-                    $imgData = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-                    $sql = "UPDATE whatwedo set `image`='$imgData' WHERE `id`='$id' ";
-                    $current_id = mysqli_query($connection, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($connection));
-                    if (isset($current_id)) {
-                        echo "<script>
-                            window.location.replace('../../pages/whatwedo/achievement.php')
-                        </script>";
-                    }
-                }
-            }
-            echo "<script>
-                            window.location.replace('../../pages/whatwedo/achievement.php')
-                        </script>";
-        } else {
-            echo "<p class='col'>data already exits</p>";
-        }
-    } else {
-        $msg = "Enter status in 1 (Active) & 0 (DeActive)";
-        echo $msg;
-    }
-}
 ?>

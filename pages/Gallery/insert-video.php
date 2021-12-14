@@ -46,13 +46,14 @@ $result2 = mysqli_query($connection, $select1);
 
                     <div class="form-group">
                         <sub class="a-color" for="exampleFormControlSelect1">Video link</sub>
-                        <input name="link" type="text" class="form-control" id="exampleFormControlSelect1">
-
+                        <input name="link" type="text" class="form-control" id="exampleFormControlSelect1"                        
+                        placeholder="ENter Video Link">
 
                     </div>
                     <div class="form-group">
-                        <sub class="a-color" for="exampleFormControlSelect1">description</sub>
-                        <textarea name="description" class="form-control" id="exampleFormControlSelect1">
+                        <sub class="a-color" for="exampleFormControlSelect1">Description</sub>
+                        <textarea name="description" class="form-control" id="exampleFormControlSelect1"
+                        placeholder="Enter Description">
 
                         </textarea>
                     </div>
@@ -61,14 +62,14 @@ $result2 = mysqli_query($connection, $select1);
                         <select name="status" class="form-control" id="exampleFormControlSelect1">
 
                             <option value='1'>Active</option>
-                            <option value='0'>DeActive</option>
+                            <option value='0'>Deactive</option>
 
                         </select>
                     </div>
 
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button name="add" class="btn btn-default">Add Images</button>
+                    <button name="add" class="btn btn-default">Add Video Images</button>
                 </div>
             </form>
         </div>

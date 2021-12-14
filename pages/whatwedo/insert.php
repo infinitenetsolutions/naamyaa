@@ -6,16 +6,13 @@ include '../../AdminLogin/function.inc.php';
 
 if (isset($_POST['add'])) {
     $title = $_POST['name'];
- 
+
     $description = $_POST['description'];
-    $link = str_replace('watch?v=','embed/',$_POST['link']);
-    $date=$_POST['date'];
+    $link = str_replace('watch?v=', 'embed/', $_POST['link']);
+    $date = $_POST['date'];
     echo  "<br>";
 
     $status = $_POST['status'];
-
-
-
 
     $insert = "INSERT INTO `whatwedo`(`name`, `description`, `image`, `link`, `date`,`status`) VALUES ('$title','$description','NULL','$link','$date','$status')";
     $result = mysqli_query($connection, $insert);
@@ -40,10 +37,6 @@ if (isset($_POST['add'])) {
     }
 
 
-
-
-
-
     // } else {
     //     $msg = "Enter status in 1 (Active) & 0 (DeActtive)";
     // }
@@ -56,8 +49,8 @@ $cat_r = mysqli_query($connection, $categrie);
 ?>
 
 <div class="modal fade" id="insert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
             <form action="" method="POST" enctype="multipart/form-data">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Achievement</h4>
@@ -66,52 +59,54 @@ $cat_r = mysqli_query($connection, $categrie);
                     </button>
                 </div>
                 <div class="modal-body mx-3">
-                    <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">Title</label>
-                        <input name="name" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
 
-                    </div>
-                 
+                    <div class="container">
+                        <div class="row">
 
 
-                    <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">image</label>
-                        <input name="image" type="file" id="defaultForm-email" accept="image/*" class="form-control validate" placeholder="Enter Images">
+                            <div class="md-form col-sm-4">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Title</label>
+                                <input name="name" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Title">
+                            </div>
 
-                    </div>
+                            <div class="md-form col-sm-4">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Image</label>
+                                <input name="image" type="file" id="defaultForm-email" accept="image/*" class="form-control validate">
 
-                    <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">youtube Video link</label>
-                        <input name="link" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Youtube video Link">
+                            </div>
 
-                    </div>
-                    <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">date</label>
-                        <input name="date" type="date" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                            <div class="md-form col-sm-4">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Youtube link</label>
+                                <input name="link" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Youtube Link">
 
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Select Status</label>
-                        <select name="status" class="form-control" id="exampleFormControlSelect1">
+                            </div>
+                            <div class="md-form col-sm-4">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Date</label>
+                                <input name="date" type="date" id="defaultForm-email" class="form-control validate">
 
-                            <option value='1'>Active</option>
-                            <option value='0'>DeActive</option>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Select Status</label>
+                                <select name="status" class="form-control" id="exampleFormControlSelect1">
 
-                        </select>
-                    </div>
-                    <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">Description</label>
-                        <textarea name="description" id="defaultForm-email" class="form-control validate">
+                                    <option value='1'>Active</option>
+                                    <option value='0'>Deactive</option>
 
-
+                                </select>
+                            </div>
+                            <div class="md-form col-sm-6">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Description</label>
+                                <textarea name="description" id="defaultForm-email" class="form-control validate" placeholder="Enter Description">
 
                         </textarea>
 
+                            </div>
+                        </div>
                     </div>
                     <?php echo $msg; ?>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button name="add" class="btn btn-default">Add </button>
+                    <button name="add" class="btn btn-default">Add Achievement</button>
                 </div>
             </form>
         </div>

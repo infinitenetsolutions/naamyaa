@@ -59,7 +59,7 @@ $cat_r = mysqli_query($connection, $categrie);
         <div class="modal-content">
             <form action="" method="POST" enctype="multipart/form-data">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">About Org</h4>
+                    <h4 class="modal-title w-100 font-weight-bold">About us</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -67,12 +67,12 @@ $cat_r = mysqli_query($connection, $categrie);
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Title</label>
-                        <input name="name" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                        <input name="name" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Title">
 
                     </div>
                     <div class="md-form mb-5">
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Section</label>
-                        <select name="Categries" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
+                        <select name="Categries" id="defaultForm-email" class="form-control validate">
                             <option selected disabled>Choose Section..</option>
                             <option value="About us">About Us</option>
                             <option value="Mission">Mission</option>
@@ -82,14 +82,14 @@ $cat_r = mysqli_query($connection, $categrie);
 
 
                     <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">image</label>
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Image</label>
                         <input name="image" type="file" id="defaultForm-email" accept="image/*" class="form-control validate" placeholder="Enter Images">
 
                     </div>
 
                     <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">youtube Vide link</label>
-                        <input name="link" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Youtube video Link">
+                        <label data-error="wrong" data-success="right" for="defaultForm-email">Youtube Video link</label>
+                        <input name="link" type="text" id="defaultForm-email" class="form-control validate" placeholder="Enter Youtube Link">
 
                     </div>
                     <div class="form-group">
@@ -97,7 +97,7 @@ $cat_r = mysqli_query($connection, $categrie);
                         <select name="status" class="form-control" id="exampleFormControlSelect1">
 
                             <option value='1'>Active</option>
-                            <option value='0'>DeActive</option>
+                            <option value='0'>Deactive</option>
 
                         </select>
                     </div>
@@ -105,15 +105,13 @@ $cat_r = mysqli_query($connection, $categrie);
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Description</label>
                         <textarea name="description" id="defaultForm-email" class="form-control validate">
 
-
-
                         </textarea>
 
                     </div>
                     <?php echo $msg; ?>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button name="add" class="btn btn-default">Add Pepole</button>
+                    <button name="add" class="btn btn-default">Add About us</button>
                 </div>
             </form>
         </div>

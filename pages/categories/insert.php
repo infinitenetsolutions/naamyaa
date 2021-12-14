@@ -45,18 +45,13 @@ if (isset($_POST['add'])) {
     // } else {
     //     $msg = "Enter status in 1 (Active) & 0 (DeActtive)";
     // }
-
     //Api to retriving data
-
 }
 
-
 ?>
-
-
-<div class="modal fade" id="insert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+<div class="modal fade " id="insert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
             <form action="" method="POST">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Categories</h4>
@@ -71,7 +66,7 @@ if (isset($_POST['add'])) {
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">categories
                                     Name</label>
                                 <input name="name" type="text" id="defaultForm-email" class="form-control validate"
-                                    placeholder="Enter Caregorie Name">
+                                    placeholder="Enter Categories Name">
 
                             </div>
 
@@ -92,7 +87,7 @@ if (isset($_POST['add'])) {
                     <?php echo $msg; ?>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button name="add" class="btn btn-default">Add categoriess</button>
+                    <button name="add" class="btn btn-default">Add Categories</button>
                 </div>
             </form>
         </div>
