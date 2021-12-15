@@ -8,7 +8,7 @@ if (isset($_POST['done'])) {
     $email = emailId($_POST['username']);
 
     $password = $_POST['password'];
-     echo $username;
+    echo $username;
     echo $password;
     // echo $password;
     $q = "SELECT * FROM `super_admin` WHERE `username`='$username' && `password`='$password'";
@@ -65,13 +65,18 @@ if (isset($_POST['done'])) {
 <body>
     <div class="row">
         <div class="col-md-6 mx-auto p-0 ">
-            <div class="card">
+            <div class="card pb-4">
+                <div class="text-center">
+                <img class="img-fluid logo-img" src="../dist/img/logo-png.png" alt="">
+
+                </div>
+
                 <div class="login-box">
                     <div class="login-snip">
                         <input required id="tab-1" type="radio" name="tab" class="sign-in" checked>
                         <label for="tab-1" class="tab">Login</label>
                         <input required id="tab-2" type="radio" name="tab" class="sign-up">
-                        <label for="tab-2" class="tab">Forget</label>
+                        <label for="tab-2" class="tab"></label>
                         <div class="login-space">
                             <div class="login">
                                 <form action="" method="POST">
@@ -84,7 +89,6 @@ if (isset($_POST['done'])) {
                                     </div>
                                     <p class="errormsg"><?php echo $smg; ?></p>
                                     <div class="hr"></div>
-                                    <div class="foot"> <label for="tab-2">Forget password</label> </div>
 
 
                                 </form>
@@ -125,27 +129,29 @@ if (isset($_POST['done'])) {
 
                                     <div class=" ad group"> <input required type="submit" class=" button" name="submit" value="Sign Up"> </div>
                                     <div class="hr"></div>
-                                    <div class="foot"> <label for="tab-1">Already Member?</label> </div>
                                 </div>
                             </form>
+
                         </div>
+                        <footer class="main-footer text-white login-footer">
+                            <strong>Copyright &copy; <?php echo date('Y') ?> <a class="text-warning" href="https://naamyaafoundation.org/">Naamyaa Foundation</a>.</strong>
+                            All rights reserved.
+                            <div class="float-right d-none d-sm-inline-block">
+                                <b>Powered By</b> <a class="text-success" href="http://infinitenetsolutions.com/">Infinite Net Solutions</a>
+                            </div>
+                        </footer>
                     </div>
-                    <?php include '../footer.php'; ?>
                 </div>
+
             </div>
         </div>
-       
+
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>

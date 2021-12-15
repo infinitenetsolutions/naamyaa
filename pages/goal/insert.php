@@ -76,7 +76,7 @@ $cat_r = mysqli_query($connection, $categrie);
 
                             </div>
                             <div class="md-form col-sm-4">
-                                <label data-error="wrong" data-success="right" for="defaultForm-email">Goal Title</label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Categories</label>
                                 <select name="Categries" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
                                     <option selected disabled>categories choose..</option>
                                     <?php while ($cat_row = mysqli_fetch_array($cat_r)) { ?>

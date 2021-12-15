@@ -138,7 +138,7 @@ if (isset($_GET['edit']) && ($_GET['edit'] != '')) {
                                         <input type="text" name="name" value="<?php echo $name; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                     </div>
                                     <div class="md-form col-sm-4">
-                                        <label data-error="wrong" data-success="right" for="defaultForm-email">Goal Title</label>
+                                        <label data-error="wrong" data-success="right" for="defaultForm-email">Categories</label>
                                         <select name="Categories" id="defaultForm-email" class="form-control validate" placeholder="Enter Caregorie Name">
                                             <option selected><?php echo  $categories_name   ?></option>
                                             <?php while ($cat_row = mysqli_fetch_array($cat_r)) { ?>
