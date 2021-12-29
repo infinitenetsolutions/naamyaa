@@ -2,8 +2,11 @@
 include '../../connection.inc.php';
 
 if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
-  $select = "SELECT * FROM `Event`";
+  $select = "SELECT * FROM `donation`";
   $result1 = mysqli_query($connection, $select);
+
+
+
 
 ?>
   <!DOCTYPE html>
@@ -50,16 +53,16 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Event</h1>
+                <h1>Donation</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Event</li>
+                  <li class="breadcrumb-item active">Donation</li>
 
                 </ol>
               </div>
-              <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add New Event
+              <a href="" class="btn btn-primary text-center" data-toggle="modal" data-target="#insert">Add New Donation
               </a>
             </div>
           </div><!-- /.container-fluid -->
@@ -75,7 +78,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">All Event of The Product</h3>
+                    <h3 class="card-title">All Donation</h3>
                   </div>
                   <!-- /.card-header -->
                   <?php
@@ -93,12 +96,10 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                           <th>S.NO</th>
                           <th>Name</th>
                           <th>Category</th>
-                          <th>Address</th>
-                          <th>City</th>
-                          <th>State</th>
-                          <th>Country</th>
+                          <th>Amount</th>
+                          <th>emails</th>
                           <th>Date</th>
-                          <th>Detail</th>
+
                           <th>Update</th>
                           <th>Delete</th>
                           <th>Status</th>
@@ -111,27 +112,27 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                         $i = 1;
                         if (mysqli_num_rows($result1) > 0) {
                           while ($rows = mysqli_fetch_array($result1)) {
-                            $cate_id = $rows['categories_id'];
+                            $cate_id = $rows['categories_name'];
                         ?>
                             <tr>
-                              <td><?php echo $i++; ?></td>
+                              <td><?php echo $i++ ?></td>
                               <td><?php echo $rows['name']; ?></td>
+
                               <?php
                               // get categries
-                              $cate = "SELECT `name` FROM `categories` WHERE `id`='$cate_id'";
+                              $cate = "SELECT `name` FROM `categories` WHERE `name`='$cate_id'";
                               $cate_result = mysqli_query($connection, $cate);
                               while ($cate_rows = mysqli_fetch_array($cate_result)) {
                               ?>
+
                                 <td><?php echo $cate_rows['name']; ?></td>
                               <?php  } ?>
+                              <td><?php echo $rows['goal_ammount']; ?></td>
+                              <td><?php echo $rows['email']; ?></td>
 
 
-                              <td><?php echo $rows['address']; ?></td>
-                              <td><?php echo $rows['city']; ?></td>
-                              <td><?php echo $rows['state']; ?></td>
-                              <td><?php echo $rows['country']; ?></td>
                               <td><?php echo $rows['date']; ?></td>
-                              <td> <a href="event-details.php?id=<?php echo $rows['id']; ?>">more</a> </td>
+
                               <td><a href="update.php?edit=<?php echo $rows['id']; ?>" class="btn btn-warning">Update</a></td>
                               <td> <a href="delete.php?delete=<?php echo $rows['id']; ?>" class="btn btn-danger">Delete</a>
                               <td> <?php
@@ -154,12 +155,10 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                           <th>S.NO</th>
                           <th>Name</th>
                           <th>Category</th>
-                          <th>Address</th>
-                          <th>City</th>
-                          <th>State</th>
-                          <th>Country</th>
+                          <th>Amount</th>
+                          <th>emails</th>
                           <th>Date</th>
-                          <th>Detail</th>
+
                           <th>Update</th>
                           <th>Delete</th>
                           <th>Status</th>

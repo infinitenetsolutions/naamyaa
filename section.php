@@ -3,13 +3,17 @@
 
 if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
 
-    $totalorder = "SELECT * FROM `user_order_history` WHERE 1";
+    $total_donation = "SELECT SUM(goal_ammount) as total FROM donation where 1";
     $totaluser = "SELECT * FROM `volunteer` WHERE 1";
     $uniquevisiter = "SELECT SUM(goal_ammount) FROM goal";
-  
+    $events = "SELECT * FROM `Event` WHERE 1";
+
+
+    $total_donation_result = mysqli_query($connection, $total_donation);
+    $uniquevisiter = mysqli_query($connection, $uniquevisiter);
     $totaluser = mysqli_query($connection, $totaluser);
-    $totalorder = mysqli_query($connection, $totalorder);
-    $uniquevisiter=mysqli_query($connection,$uniquevisiter);
+
+    $result_events = mysqli_query($connection, $events);
 
 ?>
     <section class="content">
@@ -20,15 +24,15 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3><?php //echo mysqli_num_rows($totalorder); ?></h3>
-                            <h3><?php echo mysqli_num_rows($totaluser); ?></h3>                            
 
-                            <p>New Orders</p>
+                            <h3>₹ <?php echo mysqli_fetch_array($total_donation_result)['total']  ?></h3>
+
+                            <p> Total Donation</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="fas fa-hand-holding-usd"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="./pages/donation/Event.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -36,14 +40,14 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h3><?php echo mysqli_num_rows($totaluser)  ?></h3>
 
-                            <p>Bounce Rate</p>
+                            <p> Total Volunteer</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                            <i class="fas fa-users"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="./pages/user-master/user.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -51,14 +55,14 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3><?php echo mysqli_num_rows($totaluser);  ?></h3>
+                            <h3><?php echo mysqli_num_rows($result_events);  ?></h3>
 
-                            <p>User Registrations</p>
+                            <p>Total Events</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-person-add"></i>
+                            <i class="fas fa-calendar-week"></i>
                         </div>
-                        <a href="./pages/user-master/user.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="./pages/event/Event.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -80,7 +84,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
             </div>
             <!-- /.row -->
             <!-- Main row -->
-           
+
             <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
     </section>

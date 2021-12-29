@@ -9,7 +9,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user (optional) -->
-       
+
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -25,7 +25,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                    <li class="nav-item">
+                        <li class="nav-item">
                             <a href="../categories/categories.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Categories</p>
@@ -37,18 +37,35 @@
                                 <p>Events</p>
                             </a>
                         </li>
-                    
-                        
-                       
+
+
+
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class=" nav-icon fas fa-hand-holding-usd"></i>
+                        <p>
+                            Donation
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="../donation/Event.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Donation</p>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas  fa-bullseye"></i>
                         <p>
-                        Goals
+                            Goals
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -61,14 +78,13 @@
 
                     </ul>
                 </li>
-              
+
                 <li class="nav-item has-treeview">
                     <a href="../contact/contact.php" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Contacts
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -92,7 +108,7 @@
                     <a href="../user-master/user.php" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
-                         Our Team
+                            Our Team
 
                         </p>
                         <i class="right fas fa-angle-left"></i>
@@ -112,7 +128,7 @@
                         </li>
 
                     </ul>
-                   
+
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="../Gallery/home.php" class="nav-link">
@@ -143,7 +159,7 @@
                         </li>
 
                     </ul>
-                   
+
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="../Gallery/photosgallery.php" class="nav-link">
@@ -157,9 +173,9 @@
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                    <i class="fas fa-bullhorn"> </i>
+                        <i class="fas fa-bullhorn"> </i>
                         <p>
-                        &nbsp; Our Organization
+                            &nbsp; Our Organization
 
                             <i class="fas fa-angle-left right"></i>
 
@@ -232,7 +248,24 @@
 
                     </ul>
                 </li>
- 
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-comment-dots"></i>
+                        <p>
+                            Testimonial
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="../testimonial/index.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Testimonial </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

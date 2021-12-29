@@ -38,14 +38,30 @@
                         </li>
                     </ul>
                 </li>
-                
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                    <i class=" nav-icon fas fa-hand-holding-usd"></i>
+                        <p>
+                        Donation
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./pages/donation/Event.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Donation</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas  fa-bullseye"></i>
                         <p>
                         Goals
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -64,7 +80,6 @@
                         <p>
                             Contact
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -212,6 +227,24 @@
                             <a href="./pages/achievement/achievement.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Our Achievement </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-comment-dots"></i>
+                        <p>
+                            Testimonial
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./pages/testimonial/index.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Testimonial </p>
                             </a>
                         </li>
 

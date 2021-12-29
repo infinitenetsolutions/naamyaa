@@ -97,7 +97,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                       <tbody>
 
                         <?php
-                        $i = 0;
+                        $i = 1;
                         if (mysqli_num_rows($result) > 0) {
                           while ($rows = mysqli_fetch_array($result)) {
 
