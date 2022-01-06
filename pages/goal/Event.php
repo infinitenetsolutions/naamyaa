@@ -130,7 +130,7 @@ if (isset($_SESSION['username']) && ($_SESSION['username'] != '')) {
                               <td><?php echo $rows['goal_ammount']; ?></td>
                               <td>
                                 <a <?php echo ' href="data:image/jpeg;base64,' . base64_encode($rows['image']) . '"' ?> data-toggle="lightbox" data-title="Slider Images">
-                                  <img height="30px" width="30px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($rows['image']) . '"' ?> class="img-fluid mb-2" alt="Slider Images" />
+                                   <img height="30px" width="30px" <?php echo ' src="data:image/jpeg;base64,' . base64_encode($rows['image']) . '"' ?> class="img-fluid mb-2" alt="Slider Images" />
                                 </a>
                               </td>
 
